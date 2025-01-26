@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Login - Fidela Portfolio</title>
+    <style>
+        /* Fullscreen center alignment */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: #faf5ff; /* Light background color */
+        }
+
+        /* Center Login Form */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Login Box Styles */
+        .login-box {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: var(--text-light); /* Sama dengan warna text deskripsi */
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb; /* Light grey */
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 4px var(--primary-color);
+        }
+
+        .login-btn {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: var(--primary-color-dark);
+        }
+
+        /* Marquee Style */
+        .marquee {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        /* Hide portfolio section until login */
+        #portfolioContent {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Form -->
+    <div class="login-container" id="loginForm">
+        <div class="login-box">
+            <form id="login" onsubmit="return handleLogin()">
+                <h1 class="login-title">
+                    <marquee class="marquee">Welcome Back! <span class="star">˗ˏˋ ★ ˎˊ˗</span></marquee>
+                </h1>
+                <p class="login-message">Please log in to access the portfolio</p>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Portfolio Section -->
+    <div id="portfolioContent">
+        <nav>
+            <div class="nav_content">
+                <div class="logo"><a href="#">Fidela Tertia Alfino</a></div>
+                <input type="checkbox" name="check" id="check">
+                <label for="check">
+                    <i class="ri-menu-line"></i>
+                </label>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Resume</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <section class="section">
+            <div class="section_container">
+                <div class="content">
+                    <p class="subtitle">HELLO</p>
+                    <h1 class="title">
+                        <span>I'm Fidela</span><br>
+                        a Undergraduate Student Information System Sriwijaya University
+                    </h1>
+                    <p class="description">
+                        I am a student currently pursuing my education in the 4th semester with a strong passion, 
+                        skill, and creativity in UI/UX design. I am dedicated to creating beautiful, responsive, 
+                        and user-friendly designs. Let’s connect!
+                    </p>
+                    <div class="action__btns">
+                        <button class="hire__me">Hire Me</button>
+                        <a href="Portofolio UI UX_Fidela.pdf" target="_blank">
+                            <button class="portfolio">Portfolio</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="profile.jpeg" alt="profile">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // JavaScript for login functionality
+        function handleLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Dummy username and password validation
+            if (username === "admin" && password === "admin123") {
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("portfolioContent").style.display = "block";
+                return false;
+            } else {
+                alert("Invalid username or password. Please try again.");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
